@@ -1,0 +1,20 @@
+#User function Template for python3
+class Solution:
+
+    # Function to find maximum
+    # product subarray
+    def maxProduct(self,arr):
+        # code here
+        maxp = float('-inf')
+        left = 1
+        right = 1
+        for i in range(len(arr)):
+            if left == 0:
+                left = 1
+            if right == 0:
+                right = 1
+            left *= arr[i]
+            j = len(arr)-i-1
+            right *= arr[j]
+            maxp = max(left,right,maxp)
+        return maxp
