@@ -1,0 +1,19 @@
+def circularSubarraySum(arr):
+    ##Your code here
+    totalSum = 0
+    curMaxSum = 0
+    curMinSum = 0
+    maxSum = arr[0]
+    minSum = arr[0]
+    for i in range(len(arr)):
+        curMaxSum = max(curMaxSum + arr[i],arr[i])
+        maxSum = max(maxSum,curMaxSum)
+        
+        curMinSum = min(curMinSum + arr[i],arr[i])
+        minSum = min(minSum,curMinSum)
+        
+        totalSum += arr[i]
+    normalSum = maxSum
+    circularSum = totalSum - minSum
+    return max(normalSum,circularSum)
+    
